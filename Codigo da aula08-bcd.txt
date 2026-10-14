@@ -1,0 +1,30 @@
+-- ============================================================
+-- FICHA DE ENTREGA DA ATIVIDADE - BANCO DE DADOS & SUPABASE
+-- ============================================================
+-- Aluno(a): Victor Juan Ferreira do Amaral Soares
+-- Tema Atribuído: Tema 32 - Distribuidora de Bebidas & Atacado
+-- Vídeo de Demonstração (YouTube): (No classroom)
+-- ============================================================
+
+-- [Missão 1: Projeção & Aliases]
+SELECT
+  nome_bebida AS "Bebida/Produto",
+  preco_fardo AS "Valor do Fardo Fechado"
+FROM produtos_distribuidora;
+
+-- [Missão 2: Transformação Aritmética]
+SELECT
+  nome_bebida,
+  (preco_fardo / unidades_por_fardo) AS "Preco Unitario Lata/Garrafa"
+FROM produtos_distribuidora;
+
+-- [Missão 3: Filtro com WHERE e Lógica]
+SELECT nome_bebida, estoque_fardos
+FROM produtos_distribuidora
+WHERE (categoria = 'Água' OR categoria = 'Refrigerante') AND estoque_fardos > 200;
+
+-- [Missão 4: Lapidação (ORDER BY e LIMIT)]
+SELECT nome_bebida, preco_fardo
+FROM produtos_distribuidora
+ORDER BY preco_fardo DESC
+LIMIT 2;
